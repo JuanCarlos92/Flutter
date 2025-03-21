@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-void main() async{
+void main() async {
   //Tipo de datos
   String nombre = "franklin 4081";
   nombre = "flanklin 2";
@@ -131,8 +131,10 @@ void main() async{
   print(b);
 
   //----------------------Bucles for-------------------------
+  var numerofor = 0;
+
   for (var num = 0; num <= 10; num++) {
-    print(numero);
+    print(numerofor);
   }
 
   //Bucle con lista
