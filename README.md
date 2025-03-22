@@ -9,23 +9,30 @@ Este repositorio contiene los proyectos y ejercicios realizados durante el curso
    Widgets con estado frente a sin estado, Arbol de widgets, gestión de estado, Animaciones, temas
    ```
 - Conceptos fundamentales de Dart:
-Listas, maps, enumeraciones, bucles, mixins, clases y mucho más
-
+   ```bash
+   Listas, maps, enumeraciones, bucles, mixins, clases y mucho más
+   ```
 - Conceptos de Programación Orientada a Objetos (POO):
-El sistema de tipos, variables, funciones y métodos, herencia, clases y protocolos
+   ```bash
+   El sistema de tipos, variables, funciones y métodos, herencia, clases y protocolos
+   ```
 
 - Estructuras de control:
-If/Else, sentencias Switch y lógica para controlar el flujo de ejecución
-
+   ```bash
+   If/Else, sentencias Switch y lógica para controlar el flujo de ejecución
+   ```
 - Estructuras de datos:
-Colecciones, listas y mapas
-
+   ```bash
+   Colecciones, listas y mapas
+   ```
 - Redes:
-Llamadas asíncronas a la API, almacenar y recuperar datos de la nube y utilizar el formato JSON
-
+   ```bash
+   Llamadas asíncronas a la API, almacenar y recuperar datos de la nube y utilizar el formato JSON
+   ```
 - Administración de estado:
-setState, perforación de prop
-
+   ```bash
+   setState, perforación de prop
+   ```
 - Agregar animaciones, transiciones de página y carga de imagen
 
 ## 🚀 Requisitos
