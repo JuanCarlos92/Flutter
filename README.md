@@ -5,8 +5,9 @@ Este repositorio contiene los proyectos y ejercicios realizados durante el curso
 ## 📌 Contenido
 
 - Conceptos fundamentales de Flutter:
-Widgets con estado frente a sin estado, Arbol de widgets, gestión de estado, Animaciones, temas
-
+   ```bash
+   Widgets con estado frente a sin estado, Arbol de widgets, gestión de estado, Animaciones, temas
+   ```
 - Conceptos fundamentales de Dart:
 Listas, maps, enumeraciones, bucles, mixins, clases y mucho más
 
