@@ -1,23 +1,24 @@
 import 'package:calculadora/widgets/CalcButton.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:math_expressions/math_expressions.dart';
+import 'package:google_fonts/google_fonts.dart'; // Importa Google Fonts para personalizar los textos.
+import 'package:math_expressions/math_expressions.dart'; // Importa el paquete para evaluar expresiones matemáticas.
 
 void main() {
-  runApp(CalcApp());
+  runApp(CalcApp()); // Inicia la aplicación con el widget `CalcApp`.
 }
 
 class CalcApp extends StatefulWidget {
   const CalcApp({super.key});
 
   @override
-  State<CalcApp> createState() => _CalcAppState();
+  State<CalcApp> createState() => _CalcAppState(); // Crea el estado para `CalcApp`.
 }
 
 class _CalcAppState extends State<CalcApp> {
-  String _history = "";
-  String _expression = "";
+  String _history = ""; // Guarda el historial de cálculos previos.
+  String _expression = ""; // Guarda la expresión matemática actual.
 
+  // Función para borrar todo (historial y expresión actual).
   void allClear(String text) {
     setState(() {
       _history = "";
@@ -25,22 +26,30 @@ class _CalcAppState extends State<CalcApp> {
     });
   }
 
+  // Función para borrar solo la expresión actual.
   void clear(String text) {
     setState(() {
       _expression = "";
     });
   }
 
+  // Función para evaluar la expresión matemática ingresada.
   void evaluate(String text) {
-    Parser p = Parser();
-    Expression exp = p.parse(_expression);
-    ContextModel cm = ContextModel();
+    Parser p = Parser(); // Crea un parser para analizar la expresión.
+    Expression exp = p.parse(
+      _expression,
+    ); // Convierte la expresión en un objeto evaluable.
+    ContextModel cm = ContextModel(); // Contexto para evaluar la expresión.
     setState(() {
-      _history = _expression;
-      _expression = exp.evaluate(EvaluationType.REAL, cm).toString();
+      _history = _expression; // Guarda la expresión en el historial.
+      _expression =
+          exp
+              .evaluate(EvaluationType.REAL, cm)
+              .toString(); // Evalúa la expresión y guarda el resultado.
     });
   }
 
+  // Función para agregar números y operadores a la expresión.
   void numClick(String text) {
     setState(() {
       _expression += text;
@@ -50,56 +59,64 @@ class _CalcAppState extends State<CalcApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // Oculta la bandera de depuración.
       title: "Calculadora",
       home: Scaffold(
-        backgroundColor: Color(0xFF283637),
+        backgroundColor: Color(0xFF283637), // Fondo oscuro para la calculadora.
         body: Container(
           padding: EdgeInsets.all(12),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment:
+                MainAxisAlignment
+                    .end, // Alinea los elementos en la parte inferior de la pantalla.
             children: <Widget>[
+              // Contenedor para mostrar el historial de cálculos.
               Container(
-                alignment: const Alignment(1.0, 1.0),
+                alignment: const Alignment(
+                  1.0,
+                  1.0,
+                ), // Alinea el texto a la derecha.
                 child: Padding(
                   padding: EdgeInsets.only(right: 12),
                   child: Text(
-                    _history,
+                    _history, // Muestra el historial.
                     style: GoogleFonts.rubik(
                       textStyle: TextStyle(
                         fontSize: 24,
-                        color: Color(0xFF545F61),
+                        color: Color(0xFF545F61), // Color de texto gris oscuro.
                       ),
                     ),
                   ),
                 ),
               ),
+              // Contenedor para mostrar la expresión actual.
               Container(
                 alignment: const Alignment(1.0, 1.0),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
                   child: Text(
-                    _expression,
+                    _expression, // Muestra la expresión actual.
                     style: GoogleFonts.rubik(
                       textStyle: TextStyle(
                         fontSize: 48,
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Colors.white, // Color de texto blanco.
                       ),
                     ),
                   ),
                 ),
               ),
+              // Fila de botones de funciones especiales.
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Calcbutton(
-                    bgcolor: 0xFF00BF45,
+                    bgcolor: 0xFF00BF45, // Verde para "AC" (borrar todo).
                     text: "AC",
                     callback: allClear,
                     textSize: 20,
                   ),
                   Calcbutton(
-                    bgcolor: 0xFFE3303A,
+                    bgcolor: 0xFFE3303A, // Rojo para "C" (borrar actual).
                     text: "C",
                     callback: clear,
                     textSize: 20,
@@ -108,6 +125,7 @@ class _CalcAppState extends State<CalcApp> {
                   Calcbutton(text: "/", callback: numClick, textSize: 20),
                 ],
               ),
+              // Filas de botones de números y operadores.
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -141,7 +159,11 @@ class _CalcAppState extends State<CalcApp> {
                   Calcbutton(text: ".", callback: numClick, textSize: 20),
                   Calcbutton(text: "0", callback: numClick, textSize: 20),
                   Calcbutton(text: "00", callback: numClick, textSize: 20),
-                  Calcbutton(text: "=", callback: evaluate, textSize: 20),
+                  Calcbutton(
+                    text: "=",
+                    callback: evaluate,
+                    textSize: 20,
+                  ), // Botón de igual para evaluar la expresión.
                 ],
               ),
             ],

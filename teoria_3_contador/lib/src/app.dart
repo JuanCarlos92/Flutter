@@ -7,9 +7,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // Define la pantalla principal de la aplicación.
       home: Center(
-        child: Contador(),
-      )
+        child:
+            Contador(), // Instancia del widget Contador como pantalla principal.
+      ),
     );
   }
 }
