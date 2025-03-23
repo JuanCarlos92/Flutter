@@ -1,4 +1,4 @@
-import 'package:animaciones/pages/home_page.dart'; // Importación de una página que no se usa en este código
+import 'package:interpolaciones/pages/home_page.dart'; // Importación de una página (no utilizada en este código)
 import 'package:flutter/material.dart';
 
 void main() {
